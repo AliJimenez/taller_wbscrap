@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!--Para la codificación de caracteres?-->
+    <title>Ingreso Datos</title>
+</head>
+<body>
+<h1>Ingreso de Datos Persona</h1>
+<form method="post">
+    <div>
+        <fieldset>
+        <legend>Datos Personales:</legend>
+            <label for="nombre">Nombre:</label><br>
+            <input type="text" id="nombre" name="nombre" maxlength="15" placeholder="Alina" required><br>
+            <label for="apellido">Apellido:</label><br>
+            <input type="text" id="apellido" name="apellido" required><br>
+            <label for="pin">PIN:</label><br>
+            <input type="password" id="pin" name="pin" maxlength="4" size="4"><br>
+            <label for="datemax">Enter a date before 1980-01-01:</label>
+            <input type="date" id="datemax" name="datemax" max="1979-12-31"><br><br>
+        </fieldset>
+    </div>
+    <br>
+    <div>
+        <input type="radio" id="html" name="fav_language" value="HTML">
+        <label for="html">HTML</label><br>
+        <input type="radio" id="css" name="fav_language" value="CSS">
+        <label for="css">CSS</label><br>
+        <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+        <label for="javascript">JavaScript</label><br>
+        <input type="radio" id="python" name="fav_language" value="python">
+        <label for="python">Python</label>
+    </div>
+    <br>
+    <div>
+        <input type="checkbox" id="pc" name="pc" value="pc">
+        <label for="pc">PC</label><br>
+        <input type="checkbox" id="laptop" name="laptop" value="laptop">
+        <label for="laptop">Laptop</label><br>
+        <input type="checkbox" id="tablet" name="tablet" value="tablet">
+        <label for="tablet">Tablet</label>
+    </div>
+    <br>
+    <div>
+        <label for="semestre">Escoger el semestre:</label>
+        <select id="semestre" name="semestre">
+            <option value="1">Primer Semestre</option>
+            <option value="2">Segundo Semestre</option>
+            <option value="3">Tercer Semestre</option>
+            <option value="4">Cuarto Semestre</option>
+            <option value="5">Quinto Semestre</option>
+            <option value="6">Sexto Semestre</option>
+        </select>
+    </div>
+    <br>
+    <div>
+    <label for="ingles">Inglés:</label>
+    <input type="range"  id="ingles" name="ingles" value="50">
+    </div>
+    <br>
+    <input type="submit" value="Enviar">
+</form>
+</body>
+</html>
