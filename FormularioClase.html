@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <!--Para la codificación de caracteres?-->
-    <title>Ingreso Datos</title>
+    <title>Ingreso de Datos</title>
 </head>
 <body>
 <h1>Ingreso de Datos Persona</h1>
@@ -11,14 +11,32 @@
     <div>
         <fieldset>
         <legend>Datos Personales:</legend>
-            <label for="nombre">Nombre:</label><br>
-            <input type="text" id="nombre" name="nombre" maxlength="15" placeholder="Alina" required><br>
-            <label for="apellido">Apellido:</label><br>
-            <input type="text" id="apellido" name="apellido" required><br>
-            <label for="pin">PIN:</label><br>
-            <input type="password" id="pin" name="pin" maxlength="4" size="4"><br>
-            <label for="datemax">Enter a date before 1980-01-01:</label>
-            <input type="date" id="datemax" name="datemax" max="1979-12-31"><br><br>
+            <table>
+<!--                <thead>-->
+<!--                     <tr> tr= row→ fila-->
+<!--                         <td>Nombre</td>-->
+<!--                         <td>Apellido</td>-->
+<!--                     </tr>-->
+<!--                 </thead>-->
+                <tbody>
+                    <tr>
+                        <td><label for="nombre">Nombre:</label><br></td>
+                        <td><input type="text" id="nombre" name="nombre" maxlength="15" placeholder="Alina" required><br></td>
+                    </tr>
+                    <tr>
+                        <td><label for="apellido">Apellido:</label><br></td>
+                        <td><input type="text" id="apellido" name="apellido" required><br></td>
+                    </tr>
+                    <tr>
+                        <td><label for="pin">PIN:</label><br></td>
+                        <td><input type="password" id="pin" name="pin" maxlength="4" size="4"><br></td>
+                    </tr>
+                    <tr>
+                        <td><label for="datemax">Enter a date before 1980-01-01:</label><br></td>
+                        <td><input type="date" id="datemax" name="datemax" max="1979-12-31"><br></td>
+                    </tr>
+                </tbody>
+            </table>
         </fieldset>
     </div>
     <br>
@@ -60,6 +78,15 @@
     </div>
     <br>
     <input type="submit" value="Enviar">
+    <br>
+    <div>
+        <ul>
+            <li><a href="#">Elemento 1</a></li>
+            <li>Elemento 2</li>
+            <li>Elemento 3</li>
+            <li>Elemento 4</li>
+        </ul>
+    </div>
 </form>
 </body>
 </html>
