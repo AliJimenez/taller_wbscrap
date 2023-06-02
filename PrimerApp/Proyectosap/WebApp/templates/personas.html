@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Administración de Personas</title>
+    <style>
+        body {background-color:lavender;}
+        h1 {font-family:Century Gothic}
+    </style>
+</head>
+<body>
+    <h1>Sistema de Administración de Personas</h1>
+    <p>Cantidad de Personas: {{cantidad}}</p>
+
+    {% for persona in personas %}
+        <p>{{persona.nombre}} {{persona.apellido}} - {{persona.email}}</p>
+    {% endfor %}
+
+    <br>
+    <br>
+    <br>
+    {% for nombre in nombres_personas %}
+        <p>{{nombre}}</p>
+    {% endfor %}
+</body>
+</html>
