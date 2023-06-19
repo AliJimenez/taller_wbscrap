@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
+    <title>Sistema de Registro de Empleados</title>
+    <style>
+        body {background-color:Azure;}
+        h1 {font-family:Footlight MT Light}
+        p {font-family:Footlight MT Light}
+        th {font-family:Footlight MT Light}
+        td {font-family:Footlight MT Light}
+        caption {font-family:Footlight MT Light}
+    </style>
+</head>
+<body>
+    <div class="panel panel-primary" align="center">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <h1 class="display-6">Registro de Empleados</h1>
+    <p><strong>Cantidad de Empleados Registradas:</strong> {{cantidad}}</p>
+    </div>
+    <div align="center">
+        <a class="btn btn-primary" href="agregar_empleado"><i class="fa-solid fa-user-plus"></i></a>
+    </div>
+    <br>
+    <div class="table-responsive" align="center">
+    <table class="table table-hover table-bordered table-sm align-middle caption-top text-center table-condensed">
+        <caption><strong>Lista de empleados</strong></caption>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Sexo</th>
+            <th>Email</th>
+            <th>Dirección</th>
+            <th>Sueldo</th>
+            <th>Departamento</th>
+            <th>Proyecto</th>
+        </tr>
+        <tbody class="table-group-divider">
+            {% for e in empleados %}
+                <tr>
+                    <td>{{e.id}}</td>
+                    <td>{{e.nombre | upper}}</td>
+                    <td>{{e.apellido | upper}}</td>
+                    <td>{% if e.sexo == 'F' %} Femenino {% elif e.sexo == 'M' %} Masculino {% endif %}</td>
+                    <td>{{e.email}}</td>
+                    <td>{{e.direccion}}</td>
+                    <td>{{e.sueldo}}</td>
+                    <td>{{e.departamento}}</td>
+                    <td>{{e.proyecto}}</td>
+                    <td><a class="btn btn-secondary" href="ver_empleado/{{e.id}}"><i class="fa-solid fa-eye"></i></a></td>
+                    <td><a class="btn btn-success" href="editar_empleado/{{e.id}}"><i class="fa-solid fa-user-pen"></i></a></td>
+                    <td><a class="btn btn-danger" href="eliminar_empleado/{{e.id}}"><i class="fa-solid fa-user-xmark"></i></a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+</body>
+</html>
+
