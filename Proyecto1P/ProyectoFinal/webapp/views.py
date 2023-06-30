@@ -10,7 +10,7 @@ from empleados.models import Empleado
 def mostrar_empleados(request):
     cantidad_empleados = Empleado.objects.count()
     pagina = loader.get_template('empleados.html')
-    empleados = Empleado.objects.all()
+    empleados = Empleado.objects.order_by('apellido', 'nombre')
     datos = {'cantidad': cantidad_empleados, 'empleados': empleados}
 
     return HttpResponse(pagina.render(datos, request))
