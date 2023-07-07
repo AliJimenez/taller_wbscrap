@@ -33,6 +33,9 @@
                 <td><strong>Departamento:</strong> {{empleado.departamento}}</td>
             </tr>
                 <td><strong>Proyecto:</strong> {{empleado.proyecto}}</td>
+            <tr>
+                <td><strong>Jornada:</strong> {% if empleado.jornada.tipo == 'M' %} Matutino {% elif empleado.jornada.tipo == 'V' %} Vespertino {% elif empleado.jornada.tipo == 'N' %} Nocturno {% endif %}</td>
+            </tr>
         </table>
     </div>
     <br>

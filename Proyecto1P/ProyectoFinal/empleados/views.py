@@ -57,7 +57,7 @@ def generar_reporte(request):
     # En la celda B1 ponemos el texto 'REPORTE DE PERSONAS'
     ws['B1'] = 'REPORTE DE EMPLEADOS'
     # Juntamos las celdas desde la B1 hasta la E1, formando una sola celda
-    ws.merge_cells('B1:I1')
+    ws.merge_cells('B1:J1')
     # Creamos los encabezados desde la celda B3 hasta la E3
     ws['B3'] = 'NOMBRE'
     ws['C3'] = 'APELLIDO'
@@ -67,6 +67,7 @@ def generar_reporte(request):
     ws['G3'] = 'SUELDO'
     ws['H3'] = 'DEPARTAMENTO'
     ws['I3'] = 'PROYECTO'
+    ws['J3'] = 'JORNADA'
     cont = 4
     # Recorremos el conjunto de personas y vamos escribiendo cada uno de los datos en las celdas
     for e in empleados:
@@ -78,6 +79,15 @@ def generar_reporte(request):
         ws.cell(row=cont, column=7).value = e.sueldo
         ws.cell(row=cont, column=8).value = e.departamento.nombre
         ws.cell(row=cont, column=9).value = e.proyecto.nombre
+        if e.jornada.tipo == 'M':
+            e.jornada.tipo = 'Matutino'
+            ws.cell(row=cont, column=10).value = e.jornada.tipo
+        elif e.jornada.tipo == 'V':
+            e.jornada.tipo = 'Vespertino'
+            ws.cell(row=cont, column=10).value = e.jornada.tipo
+        elif e.jornada.tipo == 'N':
+            e.jornada.tipo = 'Nocturno'
+            ws.cell(row=cont, column=10).value = e.jornada.tipo
         cont = cont + 1
     # Establecemos el nombre del archivo
     nombre_archivo = "ReporteEmpleadosExcel.xlsx"

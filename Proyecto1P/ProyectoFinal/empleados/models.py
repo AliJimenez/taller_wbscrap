@@ -19,6 +19,19 @@ class Proyecto(models.Model):
     def __str__(self):
         return f'{self.nombre}'
 
+class Jornada(models.Model):
+    TIPO = [
+        ("M", "Matutino"),
+        ("V", "Vespertino"),
+        ("N", "Nocturno"),
+    ]
+
+    codigo = models.CharField(max_length=10)
+    tipo = models.CharField(max_length=1, choices=TIPO, null=True)
+
+    def __str__(self):
+        return f'{self.tipo}'
+
 # Create your models here.
 class Empleado(models.Model):
     SEXO = [
@@ -34,6 +47,7 @@ class Empleado(models.Model):
     sueldo = models.IntegerField(null=True)
     departamento = models.ForeignKey(Departamento, on_delete=models.SET_NULL, null=True)
     proyecto = models.ForeignKey(Proyecto, on_delete=models.SET_NULL, null=True)
+    jornada = models.ForeignKey(Jornada, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return f'id: {self.id} - {self.nombre} {self.apellido}'
